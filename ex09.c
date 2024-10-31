@@ -6,16 +6,26 @@ int main(){
   int sum = 0; 
   float avg; //avg for average.
 
-  while(1){
-    printf("Enter a number");
-    scanf("%d", &num);
-    
-    if(num == -1){
-      break;
+  printf("Type -1 for quit. \n");
+  int check_int;
+  do{
+    while(1){
+      printf("Enter a number: ");
+      check_int = scanf("%d", &num);
+      if(check_int !=1){
+        printf("Invalid value type. Please enter integer.\n");
+      }while (getchar() != '\n');
+
+      if(num == -1){
+        break;
+      }
+      
+      if(check_int == 1){
+        count++;
+        sum += num;
+      }
     }
-    sum += num;
-    count++;
-  }
+  }while (check_int != 1);
 
   if(count>0){
     avg = (float)sum/count;
